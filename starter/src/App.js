@@ -17,7 +17,7 @@ function App() {
 
   return (
     <Routes>
-      <Route exact path='/' element={<ListBooks />} />
+      <Route exact path='/' element={<ListBooks onGetBooks={books}/>} />
       <Route path='/add_books' element={<Search onGetBooks={books}/>} />
     </Routes>
   );
