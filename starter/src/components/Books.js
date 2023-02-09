@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Books = ({ onGetShelf }) => {
+const Books = ({ onGetData }) => {
+    console.log(onGetData);
   return (
       <ol className="books-grid">
           {
-              onGetShelf.map((book) =>
+              onGetData.map((book) =>
                   <li key={book.id}>
                       <div className="book">
                           <div className="book-top">
@@ -14,7 +15,7 @@ const Books = ({ onGetShelf }) => {
                                       width: 128,
                                       height: 193,
                                       backgroundImage:
-                                          `url("${book.imageLinks.thumbnail}")`,
+                                          `url("${book.imageLinks?.thumbnail}")`,
                                   }}
                               ></div>
                               <div className="book-shelf-changer">

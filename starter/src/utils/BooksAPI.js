@@ -6,7 +6,7 @@ if (!token) token = localStorage.token = Math.random().toString(36).substr(-8);
 
 const headers = {
   Accept: "application/json",
-  Authorization: token,
+  Authorization: 'token',
 };
 
 export const get = (bookId) =>
@@ -30,6 +30,7 @@ export const update = (book, shelf) =>
   }).then((res) => res.json());
 
 export const search = (query, maxResults) =>
+  
   fetch(`${api}/search`, {
     method: "POST",
     headers: {

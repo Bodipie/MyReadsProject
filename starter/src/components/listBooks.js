@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Books from './Books';
+import * as BooksAPI from '../utils/BooksAPI'
 
 const listBooks = ({onGetBooks}) => {
 
     let currentlyReading = onGetBooks.filter((book) => book.shelf === 'currentlyReading' );
     let wantToRead = onGetBooks.filter((book) => book.shelf === 'wantToRead');
     let read = onGetBooks.filter((book) => book.shelf === 'read');
+
     return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -17,19 +19,19 @@ const listBooks = ({onGetBooks}) => {
                         <div className="bookshelf">
                             <h2 className="bookshelf-title">Currently Reading</h2>
                             <div className="bookshelf-books">
-                                <Books onGetShelf={currentlyReading}/>
+                                <Books onGetData={currentlyReading} />
                             </div>
                         </div>
                         <div className="bookshelf">
                             <h2 className="bookshelf-title">Want to Read</h2>
                             <div className="bookshelf-books">
-                                <Books onGetShelf={wantToRead} />
+                                <Books onGetData={wantToRead} />
                             </div>
                         </div>
                         <div className="bookshelf">
                             <h2 className="bookshelf-title">Read</h2>
                             <div className="bookshelf-books">
-                                <Books onGetShelf={read} />
+                                <Books onGetData={read} />
                             </div>
                         </div>
                     </div>
